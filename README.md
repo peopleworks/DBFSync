@@ -659,11 +659,17 @@ DBFSync.slnx
 │   └── DBFSync.Core.Tests
 ├── .github
 │   └── workflows
-│       └── ci.yml     Build, pruebas, auditoría y artefacto win-x86
+│       ├── ci.yml       Build, pruebas, auditoría y artefacto win-x86
+│       └── release.yml  Publica el release al empujar un tag vX.Y.Z
 ├── assets
 │   └── hero.svg       Diagrama del flujo de sincronización
+├── docs
+│   └── index.html     Guía de bolsillo publicada en GitHub Pages
 ├── README.md
 ├── README.en.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── SECURITY.md
 └── LICENSE
 ```
 
@@ -763,7 +769,9 @@ plataforma de evaluación, optimización y gobierno multi-base.
 |---|---|
 | Repositorio | <https://github.com/peopleworks/DBFSync> |
 | Reportes y propuestas | [Issues](https://github.com/peopleworks/DBFSync/issues) |
-| Contribuciones | [Pull requests](https://github.com/peopleworks/DBFSync/pulls) |
+| Contribuciones | [Pull requests](https://github.com/peopleworks/DBFSync/pulls) · [Guía](CONTRIBUTING.md) |
+| Vulnerabilidades | [Política de seguridad](SECURITY.md) — no las reporte en un issue público |
+| Historial de cambios | [CHANGELOG](CHANGELOG.md) |
 
 Si DBFSync le sirvió en una migración real, abra un issue contando el escenario:
 los casos concretos de ERP son lo que hace avanzar los tres motores. Un pull

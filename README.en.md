@@ -656,11 +656,17 @@ DBFSync.slnx
 │   └── DBFSync.Core.Tests
 ├── .github
 │   └── workflows
-│       └── ci.yml     Build, tests, audit, and win-x86 artifact
+│       ├── ci.yml       Build, tests, audit, and win-x86 artifact
+│       └── release.yml  Publishes the release when a vX.Y.Z tag is pushed
 ├── assets
 │   └── hero.svg       Synchronization flow diagram
+├── docs
+│   └── index.html     Pocket guide published on GitHub Pages
 ├── README.md
 ├── README.en.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── SECURITY.md
 └── LICENSE
 ```
 
@@ -760,7 +766,9 @@ multi-database assessment, optimization, and governance platform.
 |---|---|
 | Repository | <https://github.com/peopleworks/DBFSync> |
 | Bugs and proposals | [Issues](https://github.com/peopleworks/DBFSync/issues) |
-| Contributions | [Pull requests](https://github.com/peopleworks/DBFSync/pulls) |
+| Contributions | [Pull requests](https://github.com/peopleworks/DBFSync/pulls) · [Guide](CONTRIBUTING.md) |
+| Vulnerabilities | [Security policy](SECURITY.md) — do not report them in a public issue |
+| Change history | [CHANGELOG](CHANGELOG.md) |
 
 If DBFSync helped you through a real migration, open an issue describing the
 scenario: concrete ERP cases are what move all three engines forward. A pull

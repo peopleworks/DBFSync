@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace PeopleWorks.DBFSync.Tests;
+namespace DBFSync.Core.Tests;
 
 /// <summary>
 /// The CLI option surface is declared once in code, inside the

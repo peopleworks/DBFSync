@@ -1,0 +1,33 @@
+* text=auto eol=lf
+
+# Visual Studio writes these with CRLF and rewrites them on every save.
+*.slnx    text eol=crlf
+*.csproj  text eol=crlf
+*.props   text eol=crlf
+*.resx    text eol=crlf
+
+# Windows scripts have to keep CRLF to run reliably.
+*.ps1     text eol=crlf
+*.cmd     text eol=crlf
+*.bat     text eol=crlf
+
+*.svg text
+*.md  text
+*.yml text
+
+# Visual FoxPro tables, their memo and index companions, and SQLite databases are
+# binary. Marking them keeps a test fixture from being corrupted by normalization.
+*.dbf binary
+*.cdx binary
+*.idx binary
+*.fpt binary
+*.dbt binary
+*.db  binary
+*.sqlite  binary
+*.sqlite3 binary
+
+*.png binary
+*.gif binary
+*.jpg binary
+*.ico binary
+*.zip binary
