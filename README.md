@@ -5,7 +5,7 @@
 [![CI](https://github.com/peopleworks/DBFSync/actions/workflows/ci.yml/badge.svg)](https://github.com/peopleworks/DBFSync/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/peopleworks/DBFSync?color=3fb950)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/peopleworks/DBFSync?color=00bcd4)](https://github.com/peopleworks/DBFSync/stargazers)
-![Version](https://img.shields.io/badge/version-1.0.0-00bcd4)
+[![Release](https://img.shields.io/github/v/release/peopleworks/DBFSync?color=00bcd4&label=release)](https://github.com/peopleworks/DBFSync/releases/latest)
 ![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)
 ![Platform](https://img.shields.io/badge/platform-Windows%20x86-0078D4)
 
