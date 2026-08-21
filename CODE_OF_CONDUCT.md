@@ -1,8 +1,5 @@
 # Contributor Covenant Code of Conduct
 
-> Una traducción oficial al español está disponible en
-> <https://www.contributor-covenant.org/es/version/2/1/code_of_conduct/>.
-
 ## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in our

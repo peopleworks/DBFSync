@@ -105,7 +105,9 @@ then publishes the release with a SHA-256 checksum.
 
 Be decent to each other. Harassment or personal attacks are not welcome, and threads
 that go that way will be closed. The full terms, and how to report an incident, are in
-[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — Contributor Covenant 2.1, whose official
+Spanish translation is at
+<https://www.contributor-covenant.org/es/version/2/1/code_of_conduct/>.
 
 ---
 
