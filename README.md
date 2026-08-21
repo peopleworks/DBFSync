@@ -750,6 +750,11 @@ Creado por **Pedro Hernández — PeopleWorks**
 Construido para las comunidades de .NET, Visual FoxPro y modernización de datos:
 *por y para la comunidad de desarrolladores.*
 
+DBFSync forma parte de la práctica de datos de **PeopleWorks Services, LLC &
+Xari Technologies**, junto a
+[DPO — Data Performance Optimizer](https://dpo.peopleworksservices.com/), la
+plataforma de evaluación, optimización y gobierno multi-base.
+
 ### Participar
 
 | | |
