@@ -1,0 +1,51 @@
+name: Feature request · Proponer una mejora
+description: Something DBFSync should be able to do · Algo que DBFSync debería poder hacer
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Answer in English or Spanish. The most useful proposals describe a **real
+        migration** that is hard today, not just the feature in the abstract.
+
+        Responda en inglés o español. Las propuestas más útiles describen una
+        **migración real** que hoy es difícil, no solo la función en abstracto.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem · El problema
+      description: What are you trying to do, and where does DBFSync get in the way?
+      placeholder: >
+        Our ERP splits invoices across FACT01.DBF through FACT12.DBF by month, and I
+        want them landing in one destination table.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like · Qué le gustaría
+      description: A command, an option, or a behavior. A sketch of the syntax helps.
+      render: powershell
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: engines
+    attributes:
+      label: Engines this touches · Motores que afecta
+      description: >
+        The three destinations implement the same interface. A capability added to one
+        usually belongs in all three.
+      options:
+        - label: PostgreSQL
+        - label: SQL Server
+        - label: SQLite
+        - label: Source side only (DBF reading, selection) · Solo el origen (lectura DBF, selección)
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What you do today · Qué hace hoy
+      description: The workaround, if you have one — it often shapes the right design.

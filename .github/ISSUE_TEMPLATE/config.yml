@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability · Vulnerabilidad de seguridad
+    url: https://github.com/peopleworks/DBFSync/security/advisories/new
+    about: Report it privately, never in a public issue · Repórtela en privado, nunca en un issue público
+  - name: Pocket guide · Guía de bolsillo
+    url: https://peopleworks.github.io/DBFSync/
+    about: Every command on one page, in both languages · Todos los comandos en una página, en ambos idiomas
+  - name: Troubleshooting
+    url: https://github.com/peopleworks/DBFSync/blob/main/README.md#troubleshooting
+    about: Driver, DPAPI, SSL and schema errors are covered here first · Errores de driver, DPAPI, SSL y esquema

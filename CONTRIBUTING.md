@@ -104,7 +104,8 @@ then publishes the release with a SHA-256 checksum.
 ## Code of conduct
 
 Be decent to each other. Harassment or personal attacks are not welcome, and threads
-that go that way will be closed.
+that go that way will be closed. The full terms, and how to report an incident, are in
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
 ---
 

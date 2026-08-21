@@ -655,9 +655,11 @@ DBFSync.slnx
 ├── tests
 │   └── DBFSync.Core.Tests
 ├── .github
-│   └── workflows
-│       ├── ci.yml       Build, tests, audit, and win-x86 artifact
-│       └── release.yml  Publishes the release when a vX.Y.Z tag is pushed
+│   ├── workflows
+│   │   ├── ci.yml       Build, tests, audit, and win-x86 artifact
+│   │   └── release.yml  Publishes the release when a vX.Y.Z tag is pushed
+│   ├── ISSUE_TEMPLATE
+│   └── PULL_REQUEST_TEMPLATE.md
 ├── assets
 │   └── hero.svg       Synchronization flow diagram
 ├── docs
@@ -666,6 +668,7 @@ DBFSync.slnx
 ├── README.en.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
 ├── SECURITY.md
 └── LICENSE
 ```
