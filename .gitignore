@@ -7,3 +7,5 @@ dist/
 TestResults/
 coverage/
 .codeboarding/
+publish/
+artifacts/

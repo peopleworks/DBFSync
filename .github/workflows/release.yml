@@ -1,0 +1,206 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing tag to (re)publish, for example v1.0.0'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+
+jobs:
+  release:
+    name: Publish win-x86 release
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+          fetch-depth: 0
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+
+      # A tag that disagrees with the assembly version would ship a binary whose
+      # --version output contradicts the release it is attached to.
+      - name: Resolve and verify the version
+        id: version
+        shell: pwsh
+        run: |
+          $tag = '${{ env.TAG }}'
+          if ($tag -notmatch '^v\d+\.\d+\.\d+$') {
+            throw "Tag '$tag' is not vMAJOR.MINOR.PATCH."
+          }
+          $version = $tag.Substring(1)
+
+          $csproj = [xml](Get-Content src/DBFSync/DBFSync.csproj)
+          $declared = $csproj.Project.PropertyGroup.Version | Where-Object { $_ }
+          if ($declared -ne $version) {
+            throw "Tag $tag expects <Version>$version</Version> but DBFSync.csproj declares '$declared'."
+          }
+
+          "version=$version" >> $env:GITHUB_OUTPUT
+          "tag=$tag"         >> $env:GITHUB_OUTPUT
+          Write-Host "Releasing $tag from assembly version $declared."
+
+      - name: Restore
+        run: dotnet restore DBFSync.slnx
+
+      - name: Build (Release)
+        run: dotnet build DBFSync.slnx --configuration Release --no-restore
+
+      # Includes DocumentationSyncTests, so a release cannot ship documentation
+      # that disagrees with the CLI option surface.
+      - name: Test (Release)
+        run: dotnet test DBFSync.slnx --configuration Release --no-build --verbosity normal
+
+      - name: Audit dependencies
+        shell: pwsh
+        run: |
+          $audit = dotnet list DBFSync.slnx package --vulnerable --include-transitive 2>&1 | Out-String
+          Write-Host $audit
+          if ($audit -match 'has the following vulnerable packages') {
+            Write-Error 'Vulnerable NuGet packages detected.'
+            exit 1
+          }
+
+      - name: Publish win-x86 (framework-dependent)
+        run: >
+          dotnet publish src/DBFSync/DBFSync.csproj
+          --configuration Release
+          --runtime win-x86
+          --self-contained false
+          --output publish/win-x86
+
+      # The Microsoft Visual FoxPro ODBC Driver is x86 only. An x64 apphost would
+      # build and publish cleanly here and then fail to load the driver on a user
+      # machine, so the architecture is asserted before anything is attached.
+      - name: Verify the executable is 32-bit
+        shell: pwsh
+        run: |
+          $exe = 'publish/win-x86/dbfsync.exe'
+          $stream = [IO.File]::OpenRead($exe)
+          $reader = New-Object IO.BinaryReader($stream)
+          $stream.Position = 0x3C
+          $peHeader = $reader.ReadInt32()
+          $stream.Position = $peHeader + 4
+          $machine = $reader.ReadUInt16()
+          $reader.Close(); $stream.Close()
+
+          if ($machine -ne 0x014C) {
+            throw ("dbfsync.exe reports PE machine 0x{0:X4}; the Visual FoxPro ODBC driver requires x86 (0x014C)." -f $machine)
+          }
+
+          $info = (Get-Item $exe).VersionInfo
+          Write-Host "dbfsync.exe is x86, FileVersion $($info.FileVersion)."
+
+      - name: Package
+        id: package
+        shell: pwsh
+        run: |
+          $name = "dbfsync-${{ steps.version.outputs.version }}-win-x86.zip"
+          New-Item -ItemType Directory -Force artifacts | Out-Null
+          [IO.Compression.ZipFile]::CreateFromDirectory(
+            (Resolve-Path publish/win-x86),
+            (Join-Path (Resolve-Path artifacts) $name),
+            [IO.Compression.CompressionLevel]::Optimal,
+            $false)
+
+          $sha = (Get-FileHash "artifacts/$name" -Algorithm SHA256).Hash.ToLower()
+          "name=$name" >> $env:GITHUB_OUTPUT
+          "sha256=$sha" >> $env:GITHUB_OUTPUT
+          Write-Host "$name  sha256=$sha"
+
+      - name: Compose release notes
+        shell: pwsh
+        run: |
+          $version = '${{ steps.version.outputs.version }}'
+          $name    = '${{ steps.package.outputs.name }}'
+          $sha     = '${{ steps.package.outputs.sha256 }}'
+
+          @"
+          .NET 10 CLI that migrates and synchronizes Visual FoxPro DBF files to PostgreSQL,
+          SQL Server, or SQLite, so a legacy Xbase++ ERP can keep running on its DBFs while
+          other services consume an up-to-date relational database.
+
+          📖 **[Pocket guide — every command on one page](https://peopleworks.github.io/DBFSync/)**
+          · [README (Español)](https://github.com/peopleworks/DBFSync/blob/main/README.md)
+          · [README (English)](https://github.com/peopleworks/DBFSync/blob/main/README.en.md)
+
+          ## Requirements
+
+          - **Windows** — the process must be 32-bit
+          - **Microsoft Visual FoxPro ODBC Driver (x86)**
+          - **.NET 10 runtime** (this build is framework-dependent)
+
+          ## Install
+
+          Download ``$name``, extract it, and run ``dbfsync.exe``.
+
+          ``````powershell
+          dbfsync --version
+          dbfsync sample
+          ``````
+
+          Verify the download:
+
+          ``````powershell
+          Get-FileHash $name -Algorithm SHA256
+          # $sha
+          ``````
+
+          ---
+
+          <sub>Built and verified on ``windows-latest``: full test suite, dependency audit and a
+          PE architecture check asserting the executable is x86. The Visual FoxPro driver is not
+          present on GitHub-hosted runners, so end-to-end DBF tests require a self-hosted Windows
+          runner with the x86 driver installed.</sub>
+
+          <sub>**Español** — CLI de .NET 10 para migrar y sincronizar DBF de Visual FoxPro hacia
+          PostgreSQL, SQL Server o SQLite sin apagar el ERP. Requiere Windows de 32 bits, el driver
+          ODBC de Visual FoxPro (x86) y el runtime de .NET 10. La
+          [guía de bolsillo](https://peopleworks.github.io/DBFSync/) tiene todos los comandos en
+          español.</sub>
+          "@ | Set-Content -Encoding utf8 release-notes.md
+
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          $tag  = '${{ steps.version.outputs.tag }}'
+          $name = '${{ steps.package.outputs.name }}'
+
+          gh release view $tag --json tagName *> $null
+          if ($LASTEXITCODE -eq 0) {
+            if ('${{ github.event_name }}' -ne 'workflow_dispatch') {
+              throw "A release for $tag already exists. Re-publish it from the Release workflow's manual run instead."
+            }
+            # Manual runs are the deliberate re-publish path: replace the release, keep the tag.
+            Write-Host "Replacing the existing $tag release."
+            gh release delete $tag --yes
+            if ($LASTEXITCODE -ne 0) { throw "Could not delete the existing $tag release." }
+          }
+
+          gh release create $tag `
+            "artifacts/$name#$name (Windows x86, framework-dependent)" `
+            --title "$tag — PeopleWorks DBFSync" `
+            --notes-file release-notes.md `
+            --generate-notes `
+            --latest
+          if ($LASTEXITCODE -ne 0) { throw "gh release create failed for $tag." }
