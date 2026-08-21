@@ -11,6 +11,8 @@
 
 **Español** · [English](README.en.md)
 
+**[📖 Guía de bolsillo — todos los comandos en una página](https://peopleworks.github.io/DBFSync/)**
+
 **CLI de .NET 10 para migrar y sincronizar DBF de Visual FoxPro hacia PostgreSQL,
 SQL Server o SQLite, sin apagar el ERP.** El sistema Xbase++ continúa operando
 sobre sus DBF mientras otros servicios consumen una base relacional actualizada.

@@ -11,6 +11,8 @@
 
 [Español](README.md) · **English**
 
+**[📖 Pocket guide — every command on one page](https://peopleworks.github.io/DBFSync/)**
+
 **.NET 10 CLI for migrating and synchronizing Visual FoxPro DBF files to
 PostgreSQL, SQL Server, or SQLite without shutting the ERP down.** The Xbase++
 application keeps operating on its DBFs while other services consume an
