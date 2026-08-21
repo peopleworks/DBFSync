@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="LanguageMissing" xml:space="preserve"><value>--lang requires a culture, for example: --lang en or --lang es.</value></data>
+  <data name="LanguageInvalid" xml:space="preserve"><value>Language culture '{0}' is invalid.</value></data>
+  <data name="BannerSubtitle" xml:space="preserve"><value>Visual FoxPro DBF → PostgreSQL / SQL Server / SQLite · v{0}</value></data>
+  <data name="NoProfilesSaved" xml:space="preserve"><value>No saved connection profiles.</value></data>
+  <data name="SavedProfilesCount" xml:space="preserve"><value>{0} saved profile(s): {1}{2}</value></data>
+  <data name="ActiveProfileTitle" xml:space="preserve"><value>ACTIVE PROFILE</value></data>
+  <data name="VerifiedConnectionTitle" xml:space="preserve"><value>CONNECTION VERIFIED</value></data>
+  <data name="ConnectionProfileTitle" xml:space="preserve"><value>CONNECTION PROFILE</value></data>
+  <data name="LabelProfile" xml:space="preserve"><value>Profile</value></data>
+  <data name="LabelEngine" xml:space="preserve"><value>Engine</value></data>
+  <data name="LabelServer" xml:space="preserve"><value>Server</value></data>
+  <data name="LabelServerOrFile" xml:space="preserve"><value>Server / file</value></data>
+  <data name="LabelDatabaseSchema" xml:space="preserve"><value>Database / schema</value></data>
+  <data name="LabelConnectedAs" xml:space="preserve"><value>Connected as</value></data>
+  <data name="LabelDpapiCredential" xml:space="preserve"><value>DPAPI credential</value></data>
+  <data name="LabelUser" xml:space="preserve"><value>user</value></data>
+  <data name="LabelMachine" xml:space="preserve"><value>machine</value></data>
+  <data name="LabelSavedProfiles" xml:space="preserve"><value>Saved profiles</value></data>
+  <data name="LabelName" xml:space="preserve"><value>Name</value></data>
+  <data name="LabelDatabase" xml:space="preserve"><value>Database</value></data>
+  <data name="LabelSchema" xml:space="preserve"><value>Schema</value></data>
+  <data name="LabelWindows" xml:space="preserve"><value>Windows</value></data>
+  <data name="LabelNoUser" xml:space="preserve"><value>(no user)</value></data>
+  <data name="LabelNoCredentials" xml:space="preserve"><value>(no credentials)</value></data>
+  <data name="LabelEncryptedTransport" xml:space="preserve"><value>Encrypted transport:</value></data>
+  <data name="LabelCertificate" xml:space="preserve"><value>Certificate:</value></data>
+  <data name="LabelUpdated" xml:space="preserve"><value>Updated:</value></data>
+  <data name="LabelYes" xml:space="preserve"><value>yes</value></data>
+  <data name="LabelNo" xml:space="preserve"><value>no</value></data>
+  <data name="LabelTrustServer" xml:space="preserve"><value>trust server</value></data>
+  <data name="LabelValidate" xml:space="preserve"><value>validate</value></data>
+  <data name="LabelFile" xml:space="preserve"><value>File</value></data>
+  <data name="LabelTargetTable" xml:space="preserve"><value>Target table</value></data>
+  <data name="LabelColumns" xml:space="preserve"><value>Columns</value></data>
+  <data name="LabelActiveRows" xml:space="preserve"><value>Active rows</value></data>
+  <data name="LabelDeletedRows" xml:space="preserve"><value>Marked deleted</value></data>
+  <data name="LabelSample" xml:space="preserve"><value>Sample</value></data>
+  <data name="LabelDbfField" xml:space="preserve"><value>DBF field</value></data>
+  <data name="LabelType" xml:space="preserve"><value>Type</value></data>
+  <data name="LabelLength" xml:space="preserve"><value>Length</value></data>
+  <data name="LabelPrecision" xml:space="preserve"><value>Precision</value></data>
+  <data name="LabelScale" xml:space="preserve"><value>Scale</value></data>
+  <data name="ErrorLabel" xml:space="preserve"><value>ERROR</value></data>
+  <data name="ExecutionCancelled" xml:space="preserve"><value>Execution cancelled.</value></data>
+
+  <data name="ColumnKindText" xml:space="preserve"><value>Text</value></data>
+  <data name="ColumnKindDecimal" xml:space="preserve"><value>Decimal</value></data>
+  <data name="ColumnKindInteger" xml:space="preserve"><value>Integer</value></data>
+  <data name="ColumnKindDouble" xml:space="preserve"><value>Double</value></data>
+  <data name="ColumnKindBoolean" xml:space="preserve"><value>Boolean</value></data>
+  <data name="ColumnKindDate" xml:space="preserve"><value>Date</value></data>
+  <data name="ColumnKindDateTime" xml:space="preserve"><value>Date/time</value></data>
+  <data name="ColumnKindBinary" xml:space="preserve"><value>Binary</value></data>
+
+  <data name="UnknownCommand" xml:space="preserve"><value>Unknown command: '{0}'. Use 'dbfsync --help'.</value></data>
+  <data name="MissingProfileAction" xml:space="preserve"><value>Missing profile action: set, list, show, test, or remove.</value></data>
+  <data name="UnknownProfileAction" xml:space="preserve"><value>Unknown profile action: '{0}'.</value></data>
+  <data name="ProfileSetUsage" xml:space="preserve"><value>Usage: dbfsync profile set NAME [options].</value></data>
+  <data name="PasswordPrompt" xml:space="preserve"><value>Password: </value></data>
+  <data name="TestingConnection" xml:space="preserve"><value>Testing connection to {0}...</value></data>
+  <data name="ProfileSaved" xml:space="preserve"><value>Profile '{0}' saved to {1}</value></data>
+  <data name="TaskSameUser" xml:space="preserve"><value>The scheduled task must run as this same Windows user.</value></data>
+  <data name="MachineSecret" xml:space="preserve"><value>The secret is bound to this machine so another task account can use it.</value></data>
+  <data name="NoProfilesAt" xml:space="preserve"><value>No profiles found in {0}</value></data>
+  <data name="VerifyingProfile" xml:space="preserve"><value>Verifying {0}...</value></data>
+  <data name="ProfileConnectionOk" xml:space="preserve"><value>Profile '{0}': connection OK.</value></data>
+  <data name="ProfileDoesNotExist" xml:space="preserve"><value>Profile '{0}' does not exist.</value></data>
+  <data name="ProfileRemoved" xml:space="preserve"><value>Profile '{0}' removed.</value></data>
+  <data name="TransferNoPositionals" xml:space="preserve"><value>migrate and sync do not accept positional arguments.</value></data>
+  <data name="TransferStarted" xml:space="preserve"><value>DBFSync {0}: profile={1}, engine={2}, source={3}</value></data>
+  <data name="TransferTotal" xml:space="preserve"><value>TOTAL: tables={0}, rows={1:N0}, inserted={2:N0}, updated={3:N0}, deleted={4:N0}</value></data>
+  <data name="LogLocation" xml:space="preserve"><value>Log: {0}</value></data>
+  <data name="InspectNoPositionals" xml:space="preserve"><value>inspect does not accept positional arguments.</value></data>
+  <data name="SelectedDbfs" xml:space="preserve"><value>{0} selected DBF(s): {1}</value></data>
+  <data name="ProfilePasswordMissing" xml:space="preserve"><value>Profile '{0}' does not contain a password.</value></data>
+  <data name="StdinPasswordMissing" xml:space="preserve"><value>stdin did not contain a password.</value></data>
+  <data name="CommandUsage" xml:space="preserve"><value>Usage: dbfsync {0} NAME.</value></data>
+  <data name="EngineInvalid" xml:space="preserve"><value>--engine must be postgresql, sqlserver, or sqlite.</value></data>
+  <data name="ScopeInvalid" xml:space="preserve"><value>--scope must be user or machine.</value></data>
+  <data name="PortInvalid" xml:space="preserve"><value>--port must be an integer.</value></data>
+  <data name="NonInteractivePassword" xml:space="preserve"><value>Input is not interactive. Use --password-stdin to read the password from stdin.</value></data>
+  <data name="PasswordCancelled" xml:space="preserve"><value>Password entry cancelled.</value></data>
+  <data name="PasswordEmpty" xml:space="preserve"><value>Password cannot be empty.</value></data>
+  <data name="SqliteNoCredentials" xml:space="preserve"><value>SQLite accepts --file (or --database) and --create-database; do not pass server, credential, schema, transport, or scope options.</value></data>
+  <data name="SqliteFileRequired" xml:space="preserve"><value>SQLite requires --file PATH.</value></data>
+  <data name="FileSqliteOnly" xml:space="preserve"><value>--file is available only with --engine sqlite.</value></data>
+  <data name="DatabaseCreated" xml:space="preserve"><value>Database created: {0}</value></data>
+  <data name="DatabaseAlreadyExists" xml:space="preserve"><value>Database already exists: {0}</value></data>
+  <data name="DatabaseActionUsage" xml:space="preserve"><value>Usage: dbfsync database create --profile NAME.</value></data>
+
+  <data name="HelpProfilesTitle" xml:space="preserve"><value>Profiles and credentials</value></data>
+  <data name="HelpProfileSet" xml:space="preserve"><value>dbfsync profile set NAME --engine postgresql|sqlserver --server HOST --database DB --user USER</value></data>
+  <data name="HelpProfileOptions1" xml:space="preserve"><value>    [--port N] [--schema NAME] [--scope user|machine] [--integrated]</value></data>
+  <data name="HelpProfileOptions2" xml:space="preserve"><value>    [--no-encrypt] [--trust-server-certificate] [--password-stdin] [--create-database]</value></data>
+  <data name="HelpProfileSqlite" xml:space="preserve"><value>dbfsync profile set NAME --engine sqlite --file C:\Data\erp.db</value></data>
+  <data name="HelpProfileManage" xml:space="preserve"><value>dbfsync profile list | show NAME | test NAME | remove NAME</value></data>
+  <data name="HelpDatabaseCreate" xml:space="preserve"><value>dbfsync database create --profile NAME</value></data>
+  <data name="HelpSelectionTitle" xml:space="preserve"><value>Flexible DBF selection</value></data>
+  <data name="HelpInspect" xml:space="preserve"><value>dbfsync inspect --source PATH --tables customers,fa*.dbf,cbmovf??</value></data>
+  <data name="HelpMigrate" xml:space="preserve"><value>dbfsync migrate --profile NAME --source PATH (--tables PATTERNS | --all) [--exclude PATTERNS] [--recreate]</value></data>
+  <data name="HelpSync" xml:space="preserve"><value>dbfsync sync --profile NAME --source PATH (--tables PATTERNS | --all) [--exclude PATTERNS]</value></data>
+  <data name="HelpSchemaSync" xml:space="preserve"><value>    [--sync-schema] [--allow-drop-columns]</value></data>
+  <data name="HelpRecreate" xml:space="preserve"><value>Use migrate --recreate for incompatible or narrowing type changes.</value></data>
+  <data name="HelpPatterns" xml:space="preserve"><value>Patterns: * matches any text and ? matches one character. Repeated --table, comma lists, and !history* negation are supported.</value></data>
+  <data name="HelpPatternExample" xml:space="preserve"><value>Example: --tables "fa*.dbf,cbmovf??" --exclude "*history*,*bak*"</value></data>
+  <data name="HelpPassword" xml:space="preserve"><value>PostgreSQL and SQL Server passwords are requested once, protected with DPAPI, and never passed to the job. SQLite has no credentials.</value></data>
+  <data name="HelpSsl" xml:space="preserve"><value>PostgreSQL and SQL Server use encrypted connections by default. Use --no-encrypt only for a trusted local development server without SSL.</value></data>
+  <data name="HelpTask" xml:space="preserve"><value>For Task Scheduler, use --scope user with the same account or --scope machine.</value></data>
+  <data name="HelpLanguage" xml:space="preserve"><value>Language: --lang en | --lang es, or set DBFSYNC_LANG.</value></data>
+  <data name="HelpSamples" xml:space="preserve"><value>Run 'dbfsync sample' for complete execution examples.</value></data>
+
+  <data name="SamplesTitle" xml:space="preserve"><value>Complete execution examples</value></data>
+  <data name="SampleSqliteTitle" xml:space="preserve"><value>1. Run a credential-free SQLite workflow</value></data>
+  <data name="SampleSqliteDescription" xml:space="preserve"><value>The profile creates the local file; migrate loads it initially and sync keeps it current without credentials.</value></data>
+  <data name="SampleSqliteCommand" xml:space="preserve"><value>dbfsync profile set local --engine sqlite --file C:\DBFSync\erp.db
+dbfsync migrate --profile local --source C:\ERP\Data --all
+dbfsync sync --profile local --source C:\ERP\Data --all --sync-schema</value></data>
+  <data name="SamplePostgresTitle" xml:space="preserve"><value>2. Create a database and save a PostgreSQL profile</value></data>
+  <data name="SamplePostgresDescription" xml:space="preserve"><value>If needed, the database is created through postgres; the password is stored with DPAPI. For a trusted local server without SSL, add --no-encrypt.</value></data>
+  <data name="SamplePostgresCommand" xml:space="preserve"><value>dbfsync profile set erp-pg --engine postgresql --server pg01 --port 5432 --database erp --schema public --user dbfsync --scope user --create-database
+# Local development only, when PostgreSQL has no SSL:
+dbfsync profile set erp-local --engine postgresql --server 127.0.0.1 --port 5432 --database pwerp --schema public --user postgres --scope user --no-encrypt --create-database</value></data>
+  <data name="SampleSqlServerTitle" xml:space="preserve"><value>3. Save a SQL Server profile for a scheduled task</value></data>
+  <data name="SampleSqlServerDescription" xml:space="preserve"><value>Machine scope supports a task account on the same server. Restrict access to profiles.json.</value></data>
+  <data name="SampleSqlServerCommand" xml:space="preserve"><value>dbfsync profile set erp-sql --engine sqlserver --server sql01 --database ERP --schema dbo --user dbfsync --scope machine --trust-server-certificate</value></data>
+  <data name="SampleIntegratedTitle" xml:space="preserve"><value>4. Use SQL Server Windows authentication</value></data>
+  <data name="SampleIntegratedDescription" xml:space="preserve"><value>No database password is saved; the process identity is used.</value></data>
+  <data name="SampleIntegratedCommand" xml:space="preserve"><value>dbfsync profile set erp-windows --engine sqlserver --server sql01 --database ERP --integrated</value></data>
+  <data name="SampleInspectTitle" xml:space="preserve"><value>5. Inspect a group before writing</value></data>
+  <data name="SampleInspectDescription" xml:space="preserve"><value>Select invoice and bank movement DBFs, excluding history and backup files.</value></data>
+  <data name="SampleInspectCommand" xml:space="preserve"><value>dbfsync inspect --source C:\ERP\Data --tables "fa*.dbf,cbmovf??" --exclude "*history*,*bak*"</value></data>
+  <data name="SampleMigrateTitle" xml:space="preserve"><value>6. Perform the initial migration</value></data>
+  <data name="SampleMigrateDescription" xml:space="preserve"><value>Creates missing destination tables and replaces their content.</value></data>
+  <data name="SampleMigrateCommand" xml:space="preserve"><value>dbfsync migrate --profile erp-pg --source C:\ERP\Data --tables "customers,items,fa*.dbf"</value></data>
+  <data name="SampleSchemaSyncTitle" xml:space="preserve"><value>7. Safely synchronize DBF structure</value></data>
+  <data name="SampleSchemaSyncDescription" xml:space="preserve"><value>Adds missing columns and widens compatible text, decimal, or date types in the same data transaction.</value></data>
+  <data name="SampleSchemaSyncCommand" xml:space="preserve"><value>dbfsync sync --profile erp-pg --source C:\ERP\Data --tables "customers,items" --sync-schema</value></data>
+  <data name="SampleSchemaDropTitle" xml:space="preserve"><value>8. Remove destination columns no longer present in DBF</value></data>
+  <data name="SampleSchemaDropDescription" xml:space="preserve"><value>This is destructive and requires both explicit schema flags.</value></data>
+  <data name="SampleSchemaDropCommand" xml:space="preserve"><value>dbfsync sync --profile erp-pg --source C:\ERP\Data --tables customers --sync-schema --allow-drop-columns</value></data>
+  <data name="SampleRecreateTitle" xml:space="preserve"><value>9. Rebuild tables after an incompatible DBF schema change</value></data>
+  <data name="SampleRecreateDescription" xml:space="preserve"><value>--recreate drops and rebuilds the selected destination tables inside a transaction.</value></data>
+  <data name="SampleRecreateCommand" xml:space="preserve"><value>dbfsync migrate --profile erp-pg --source C:\ERP\Data --tables "customers,items" --recreate</value></data>
+  <data name="SampleSyncTitle" xml:space="preserve"><value>10. Synchronize from Task Scheduler</value></data>
+  <data name="SampleSyncDescription" xml:space="preserve"><value>The job passes only a profile name; it never includes the database password.</value></data>
+  <data name="SampleSyncCommand" xml:space="preserve"><value>dbfsync.exe sync --profile erp-pg --source C:\ERP\Data --tables "fa*.dbf,cbmovf??" --exclude "*history*"</value></data>
+  <data name="SampleAllTitle" xml:space="preserve"><value>11. Synchronize all DBFs except temporary files</value></data>
+  <data name="SampleAllDescription" xml:space="preserve"><value>--all can be combined with one or more exclusion patterns.</value></data>
+  <data name="SampleAllCommand" xml:space="preserve"><value>dbfsync sync --profile erp-sql --source C:\ERP\Data --all --exclude "temp*,*bak*,test*"</value></data>
+  <data name="SampleDatabaseTitle" xml:space="preserve"><value>12. Ensure a saved profile's database exists</value></data>
+  <data name="SampleDatabaseDescription" xml:space="preserve"><value>Connects through postgres or master; for SQLite it creates the file and parent directory.</value></data>
+  <data name="SampleDatabaseCommand" xml:space="preserve"><value>dbfsync database create --profile erp-pg</value></data>
+  <data name="SampleLanguageTitle" xml:space="preserve"><value>13. Select the interface language</value></data>
+  <data name="SampleLanguageDescription" xml:space="preserve"><value>--lang can appear anywhere. DBFSYNC_LANG defines the default for scheduled tasks.</value></data>
+  <data name="SampleLanguageCommand" xml:space="preserve"><value>dbfsync sample --lang es
+$env:DBFSYNC_LANG = "en"; dbfsync profile list</value></data>
+
+  <data name="ProfileNameInvalid" xml:space="preserve"><value>Profile name may contain only letters, numbers, dot, hyphen, and underscore.</value></data>
+  <data name="ProfileServerRequired" xml:space="preserve"><value>Profile server is required.</value></data>
+  <data name="ProfileDatabaseRequired" xml:space="preserve"><value>Profile database is required.</value></data>
+  <data name="ProfilePortRange" xml:space="preserve"><value>Port must be between 1 and 65535.</value></data>
+  <data name="IntegratedSqlServerOnly" xml:space="preserve"><value>Integrated authentication is available only for SQL Server.</value></data>
+  <data name="ProfileUserRequired" xml:space="preserve"><value>User is required when integrated authentication is not used.</value></data>
+  <data name="ProtectedPasswordRequired" xml:space="preserve"><value>Profile does not contain a protected password.</value></data>
+  <data name="UnsupportedEngine" xml:space="preserve"><value>Unsupported database engine.</value></data>
+  <data name="InvalidOption" xml:space="preserve"><value>Invalid option: '{0}'.</value></data>
+  <data name="MissingOption" xml:space="preserve"><value>Missing --{0}.</value></data>
+  <data name="FlagValueInvalid" xml:space="preserve"><value>--{0} does not accept value '{1}'.</value></data>
+  <data name="IntegerOptionRequired" xml:space="preserve"><value>--{0} must be an integer.</value></data>
+  <data name="UnknownOptions" xml:space="preserve"><value>Unknown options: {0}</value></data>
+  <data name="UseAllOrPatterns" xml:space="preserve"><value>Use --all or inclusion patterns, but not both.</value></data>
+  <data name="TablesOrAllRequired" xml:space="preserve"><value>Specify --tables table1,fa*.dbf or use --all.</value></data>
+  <data name="InvalidDbfPath" xml:space="preserve"><value>Invalid DBF path: {0}</value></data>
+  <data name="NoDbfFiles" xml:space="preserve"><value>No DBF files found in '{0}'.</value></data>
+  <data name="UnmatchedPatterns" xml:space="preserve"><value>These patterns matched no DBFs in '{0}': {1}</value></data>
+  <data name="EmptySelection" xml:space="preserve"><value>Selection and exclusions produced no DBFs.</value></data>
+  <data name="OdbcNoSchema" xml:space="preserve"><value>ODBC returned no schema for {0}.</value></data>
+  <data name="UnnamedDbfColumn" xml:space="preserve"><value>A column in {0} has no name.</value></data>
+  <data name="DbfNoColumns" xml:space="preserve"><value>DBF {0} contains no columns.</value></data>
+  <data name="ReservedDbfColumn" xml:space="preserve"><value>{0} contains a column reserved by DBFSync.</value></data>
+  <data name="OdbcColumnCount" xml:space="preserve"><value>ODBC returned {0} columns for {1}; expected {2}. Columns: {3}.</value></data>
+  <data name="OdbcProjectionChanged" xml:space="preserve"><value>ODBC changed the projection for {0}. Expected: {1}. Returned: {2}.</value></data>
+  <data name="OdbcInvalidRecno" xml:space="preserve"><value>ODBC returned '{0}' ({1}) in column {2}; a numeric RECNO() was expected.</value></data>
+  <data name="BinaryValueExpected" xml:space="preserve"><value>{0} returned {1}; byte[] was expected.</value></data>
+  <data name="UnsupportedColumnKind" xml:space="preserve"><value>Unsupported type in {0}: {1}.</value></data>
+  <data name="UnsupportedOdbcType" xml:space="preserve"><value>ODBC type {0} is not supported.</value></data>
+  <data name="FoxProDriverRequired" xml:space="preserve"><value>Could not open the DBF. Verify that the x86 Microsoft Visual FoxPro ODBC Driver is installed.</value></data>
+  <data name="DbfDirectoryMissing" xml:space="preserve"><value>DBF directory does not exist: {0}</value></data>
+  <data name="InvalidDbfName" xml:space="preserve"><value>Invalid DBF name: '{0}'.</value></data>
+  <data name="InvalidDbfPattern" xml:space="preserve"><value>Invalid DBF pattern: '{0}'.</value></data>
+  <data name="DbfFileMissing" xml:space="preserve"><value>{0}.dbf does not exist in {1}.</value></data>
+  <data name="BatchSizeRange" xml:space="preserve"><value>Batch size must be between 1 and 100000.</value></data>
+  <data name="RecreateMigrateOnly" xml:space="preserve"><value>--recreate can be used only with migrate.</value></data>
+  <data name="RecreateSchemaSyncExclusive" xml:space="preserve"><value>Use either --recreate or --sync-schema, not both.</value></data>
+  <data name="AllowDropRequiresSchemaSync" xml:space="preserve"><value>--allow-drop-columns requires --sync-schema.</value></data>
+  <data name="SyncSelection" xml:space="preserve"><value>{0} selected DBF(s): {1}</value></data>
+  <data name="ReadingTable" xml:space="preserve"><value>{0}: reading {1} columns from {2}</value></data>
+  <data name="RowsPrepared" xml:space="preserve"><value>{0}: {1:N0} rows prepared</value></data>
+  <data name="TableTransferSummary" xml:space="preserve"><value>{0}: read={1:N0}, inserted={2:N0}, updated={3:N0}, deleted={4:N0}, duration={5:c}</value></data>
+  <data name="ColumnsValuesMismatch" xml:space="preserve"><value>Column and value counts do not match.</value></data>
+  <data name="IdentifierSchema" xml:space="preserve"><value>schema</value></data>
+  <data name="IdentifierDbfField" xml:space="preserve"><value>DBF field</value></data>
+  <data name="IdentifierDbfTable" xml:space="preserve"><value>DBF table name</value></data>
+  <data name="InvalidSqlIdentifier" xml:space="preserve"><value>The {0} '{1}' is not a valid SQL identifier.</value></data>
+  <data name="ProgramDataUnavailable" xml:space="preserve"><value>Windows did not return the ProgramData path.</value></data>
+  <data name="ProfileNotFoundStored" xml:space="preserve"><value>Profile '{0}' does not exist. Use 'dbfsync profile list'.</value></data>
+  <data name="ProfilesFileEmpty" xml:space="preserve"><value>Profiles file is empty: {0}</value></data>
+  <data name="ProfilesVersionUnsupported" xml:space="preserve"><value>Unsupported profiles version: {0}.</value></data>
+  <data name="ProfilesPathInvalid" xml:space="preserve"><value>Invalid profiles path: {0}</value></data>
+  <data name="DpapiWindowsOnly" xml:space="preserve"><value>DBFSync protects credentials with Windows DPAPI.</value></data>
+  <data name="DpapiFormatInvalid" xml:space="preserve"><value>Secret does not have a recognized DPAPI format.</value></data>
+  <data name="DpapiCurrentUserHint" xml:space="preserve"><value>Run the task as the user who created the profile, or save it again with --scope machine.</value></data>
+  <data name="DpapiMachineHint" xml:space="preserve"><value>The profile was encrypted on another machine and must be created again.</value></data>
+  <data name="DpapiDecryptFailed" xml:space="preserve"><value>Could not decrypt the password. {0}</value></data>
+  <data name="DestinationAlreadyPrepared" xml:space="preserve"><value>Destination has already been prepared.</value></data>
+  <data name="DestinationNotPrepared" xml:space="preserve"><value>Destination has not been prepared.</value></data>
+  <data name="TransferAlreadyCompleted" xml:space="preserve"><value>Transfer has already been completed.</value></data>
+  <data name="SynchronizationResultMissing" xml:space="preserve"><value>{0} did not return a synchronization result.</value></data>
+  <data name="ConcurrentSynchronization" xml:space="preserve"><value>Another execution is synchronizing {0}.</value></data>
+  <data name="DestinationSchemaChanged" xml:space="preserve"><value>Schema or types for {0} changed. Run 'migrate --recreate' to rebuild the table.</value></data>
+  <data name="ManagedMetadataMissing" xml:space="preserve"><value>DBFSync metadata columns are missing or incompatible in {0}. Run 'migrate --recreate'.</value></data>
+  <data name="SchemaAddedColumn" xml:space="preserve"><value>{0}: added column {1} ({2}).</value></data>
+  <data name="SchemaAlteredColumn" xml:space="preserve"><value>{0}: widened column {1} from {2} to {3}.</value></data>
+  <data name="SchemaDroppedColumn" xml:space="preserve"><value>{0}: dropped column {1}.</value></data>
+  <data name="DropColumnsRequired" xml:space="preserve"><value>Destination columns are missing from the DBF: {0}. Re-run with --sync-schema --allow-drop-columns to delete them.</value></data>
+  <data name="UnsafeTypeChange" xml:space="preserve"><value>Column {0} cannot safely change from {1} to {2}. Use 'migrate --recreate'.</value></data>
+  <data name="PostgresLockReleaseFailed" xml:space="preserve"><value>PostgreSQL did not release the lock for {0}.</value></data>
+</root>

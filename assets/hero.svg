@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600"
+     role="img" aria-labelledby="dbfsync-hero-title dbfsync-hero-desc">
+  <title id="dbfsync-hero-title">PeopleWorks DBFSync — Visual FoxPro DBF to PostgreSQL, SQL Server and SQLite</title>
+  <desc id="dbfsync-hero-desc">Pipeline diagram. Visual FoxPro DBF files are read through the 32-bit Visual FoxPro ODBC driver, which opens the tables with Deleted=Yes, keeps RECNO() as the physical record identity, normalizes empty FoxPro dates to NULL, trims text, and computes a SHA-256 hash per row. Rows land in a temporary staging table that holds RECNO and hash. A per-table transaction then reconciles the destination: INSERT for a new RECNO, UPDATE when the hash differs, DELETE for a RECNO that is no longer present, and ROLLBACK on error. The reconciled data is written to PostgreSQL, SQL Server or SQLite. The bottom panel states the change rule: for the same RECNO 42, an identical SHA-256 hash between run t0 and run t1 produces no operation, while a different hash produces an UPDATE.</desc>
+
+  <defs>
+    <marker id="dbfsync-arrow" viewBox="0 0 10 10" refX="8.5" refY="5"
+            markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#3D5A8A"/>
+    </marker>
+    <linearGradient id="dbfsync-rule" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="0.55" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+  </defs>
+
+  <!-- contained background: identical in GitHub light and dark themes -->
+  <rect x="0" y="0" width="1200" height="600" rx="20" fill="#0B1220"/>
+  <rect x="0.75" y="0.75" width="1198.5" height="598.5" rx="19.25" fill="none" stroke="#1E2C46" stroke-width="1.5"/>
+
+  <!-- header -->
+  <g font-family="Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif">
+    <text x="44" y="56" font-size="28" font-weight="700" fill="#E9EFFA">PeopleWorks DBFSync</text>
+    <text x="44" y="84" font-size="15" fill="#93A4C0">Visual FoxPro DBF  →  PostgreSQL · SQL Server · SQLite</text>
+
+    <rect x="924" y="44" width="134" height="30" rx="15" fill="#10203A" stroke="#2A4368"/>
+    <text x="991" y="64" font-size="13" font-weight="600" fill="#7FC4F5" text-anchor="middle">Windows x86</text>
+
+    <rect x="1068" y="44" width="88" height="30" rx="15" fill="#171436" stroke="#3A2F72"/>
+    <text x="1112" y="64" font-size="13" font-weight="600" fill="#A78BFA" text-anchor="middle">.NET 10</text>
+  </g>
+  <rect x="44" y="104" width="360" height="2" rx="1" fill="url(#dbfsync-rule)"/>
+
+  <!-- panels -->
+  <g fill="#121C30" stroke="#22304C" stroke-width="1.25">
+    <rect x="40"  y="128" width="180" height="272" rx="14"/>
+    <rect x="252" y="128" width="212" height="272" rx="14"/>
+    <rect x="496" y="128" width="180" height="272" rx="14"/>
+    <rect x="708" y="128" width="212" height="272" rx="14"/>
+    <rect x="952" y="128" width="208" height="272" rx="14"/>
+  </g>
+
+  <!-- panel titles -->
+  <g font-family="Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif"
+     font-size="12" font-weight="700" letter-spacing="1.6" fill="#8FA3C4" text-anchor="middle">
+    <text x="130"  y="160">VISUAL FOXPRO</text>
+    <text x="358"  y="160">ODBC · x86</text>
+    <text x="586"  y="160">STAGING</text>
+    <text x="814"  y="160">BEGIN … COMMIT</text>
+    <text x="1056" y="160">SQL</text>
+  </g>
+
+  <!-- flow arrows -->
+  <g stroke="#3D5A8A" stroke-width="2" marker-end="url(#dbfsync-arrow)">
+    <line x1="226" y1="264" x2="244" y2="264"/>
+    <line x1="470" y1="264" x2="488" y2="264"/>
+    <line x1="682" y1="264" x2="700" y2="264"/>
+    <line x1="926" y1="264" x2="944" y2="264"/>
+  </g>
+
+  <!-- P1: DBF sources -->
+  <g>
+    <g fill="#182642" stroke="#2E4570" stroke-width="1.25">
+      <rect x="74" y="174" width="112" height="52" rx="9"/>
+      <rect x="74" y="232" width="112" height="52" rx="9"/>
+      <rect x="74" y="290" width="112" height="52" rx="9"/>
+    </g>
+    <g fill="#2E4570">
+      <path d="M 168 174 L 186 192 L 168 192 Z"/>
+      <path d="M 168 232 L 186 250 L 168 250 Z"/>
+      <path d="M 168 290 L 186 308 L 168 308 Z"/>
+    </g>
+    <g font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
+       font-size="15" fill="#CFE0F5" text-anchor="middle">
+      <text x="126" y="206">.dbf</text>
+      <text x="126" y="264">.dbf</text>
+      <text x="126" y="322">.dbf</text>
+    </g>
+    <rect x="62" y="356" width="136" height="30" rx="15" fill="#0F1A2E" stroke="#2A3C5E"/>
+    <text x="130" y="376" font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
+          font-size="13" fill="#93A4C0" text-anchor="middle">*   ?   --all</text>
+  </g>
+
+  <!-- P2: ODBC read, normalize, hash -->
+  <g font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
+     font-size="13" text-anchor="middle">
+    <rect x="268" y="176" width="180" height="34" rx="9" fill="#0C2230" stroke="#1C6F84"/>
+    <text x="358" y="198" fill="#67E8F9">RECNO()</text>
+
+    <rect x="268" y="218" width="180" height="34" rx="9" fill="#0F1A2E" stroke="#2A3C5E"/>
+    <text x="358" y="240" fill="#B7C7E0">Deleted=Yes</text>
+
+    <rect x="268" y="260" width="180" height="34" rx="9" fill="#0F1A2E" stroke="#2A3C5E"/>
+    <text x="358" y="282" fill="#B7C7E0">1899-12-30 → NULL</text>
+
+    <rect x="268" y="302" width="180" height="34" rx="9" fill="#0F1A2E" stroke="#2A3C5E"/>
+    <text x="358" y="324" fill="#B7C7E0">&quot; abc &quot;  →  &quot;abc&quot;</text>
+
+    <rect x="268" y="344" width="180" height="34" rx="9" fill="#2A2109" stroke="#8A6A16"/>
+    <text x="358" y="366" fill="#FCD34D">SHA-256</text>
+  </g>
+
+  <!-- P3: staging table -->
+  <g>
+    <rect x="512" y="176" width="148" height="138" rx="8" fill="#101A2E" stroke="#2A3C5E"/>
+    <path d="M 512 184 a 8 8 0 0 1 8 -8 h 132 a 8 8 0 0 1 8 8 v 18 h -148 Z" fill="#16233C"/>
+    <g stroke="#22304C" stroke-width="1">
+      <line x1="512" y1="202" x2="660" y2="202"/>
+      <line x1="512" y1="230" x2="660" y2="230"/>
+      <line x1="512" y1="258" x2="660" y2="258"/>
+      <line x1="512" y1="286" x2="660" y2="286"/>
+      <line x1="576" y1="176" x2="576" y2="314"/>
+    </g>
+    <g font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
+       text-anchor="middle">
+      <g font-size="11" fill="#8FA3C4">
+        <text x="544" y="194">RECNO</text>
+        <text x="618" y="194">SHA-256</text>
+      </g>
+      <g font-size="12.5" fill="#B7C7E0">
+        <text x="544" y="221">41</text><text x="618" y="221">a1f4…c7</text>
+        <text x="544" y="249">42</text><text x="618" y="249">9c3b…d1</text>
+        <text x="544" y="277">43</text><text x="618" y="277">c93e…08</text>
+        <text x="544" y="305">77</text><text x="618" y="305">5e21…9a</text>
+      </g>
+    </g>
+    <rect x="534" y="336" width="104" height="30" rx="15" fill="#0F1A2E" stroke="#2A3C5E"/>
+    <text x="586" y="356" font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
+          font-size="12" fill="#93A4C0" text-anchor="middle">TEMP TABLE</text>
+  </g>
+
+  <!-- P4: per-table transaction -->
+  <g font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace">
+    <rect x="724" y="176" width="180" height="52" rx="10" fill="#0B2119" stroke="#1E6B4C"/>
+    <rect x="724" y="176" width="4"   height="52" rx="2" fill="#34D399"/>
+    <text x="742" y="200" font-size="14" font-weight="700" fill="#34D399">INSERT</text>
+    <text x="742" y="218" font-size="11.5" fill="#8FA3C4">+ RECNO</text>
+
+    <rect x="724" y="238" width="180" height="52" rx="10" fill="#241C08" stroke="#8A6A16"/>
+    <rect x="724" y="238" width="4"   height="52" rx="2" fill="#FBBF24"/>
+    <text x="742" y="262" font-size="14" font-weight="700" fill="#FBBF24">UPDATE</text>
+    <text x="742" y="280" font-size="11.5" fill="#8FA3C4">hash ≠</text>
+
+    <rect x="724" y="300" width="180" height="52" rx="10" fill="#2A1315" stroke="#8C3134"/>
+    <rect x="724" y="300" width="4"   height="52" rx="2" fill="#F87171"/>
+    <text x="742" y="324" font-size="14" font-weight="700" fill="#F87171">DELETE</text>
+    <text x="742" y="342" font-size="11.5" fill="#8FA3C4">− RECNO</text>
+
+    <rect x="724" y="364" width="180" height="30" rx="15" fill="#0F1A2E" stroke="#2A3C5E"/>
+    <text x="814" y="384" font-size="12" fill="#93A4C0" text-anchor="middle">ERROR → ROLLBACK</text>
+  </g>
+
+  <!-- P5: relational destinations -->
+  <g font-family="Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif" font-size="15" font-weight="600">
+    <ellipse cx="1004" cy="227" rx="22" ry="8" fill="#4E86C4"/>
+    <rect x="982" y="197" width="44" height="30" fill="#4E86C4"/>
+    <path d="M 982 212 A 22 8 0 0 0 1026 212" fill="none" stroke="#0B1220" stroke-opacity="0.35" stroke-width="1.5"/>
+    <ellipse cx="1004" cy="197" rx="22" ry="8" fill="#7FB2E5"/>
+    <text x="1038" y="217" fill="#E9EFFA">PostgreSQL</text>
+
+    <ellipse cx="1004" cy="301" rx="22" ry="8" fill="#C9403B"/>
+    <rect x="982" y="271" width="44" height="30" fill="#C9403B"/>
+    <path d="M 982 286 A 22 8 0 0 0 1026 286" fill="none" stroke="#0B1220" stroke-opacity="0.35" stroke-width="1.5"/>
+    <ellipse cx="1004" cy="271" rx="22" ry="8" fill="#EE7A75"/>
+    <text x="1038" y="291" fill="#E9EFFA">SQL Server</text>
+
+    <ellipse cx="1004" cy="375" rx="22" ry="8" fill="#2E9FD0"/>
+    <rect x="982" y="345" width="44" height="30" fill="#2E9FD0"/>
+    <path d="M 982 360 A 22 8 0 0 0 1026 360" fill="none" stroke="#0B1220" stroke-opacity="0.35" stroke-width="1.5"/>
+    <ellipse cx="1004" cy="345" rx="22" ry="8" fill="#6FD3F5"/>
+    <text x="1038" y="365" fill="#E9EFFA">SQLite</text>
+  </g>
+
+  <!-- change rule: same RECNO(), SHA-256 decides -->
+  <rect x="40" y="428" width="1120" height="136" rx="14" fill="#101A2E" stroke="#22304C" stroke-width="1.25"/>
+
+  <g font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace"
+     font-size="12" fill="#8FA3C4" text-anchor="middle">
+    <text x="147" y="464">RECNO()</text>
+    <text x="347" y="464">SHA-256 · t0</text>
+    <text x="597" y="464">SHA-256 · t1</text>
+    <text x="787" y="464">Δ</text>
+    <text x="990" y="464">→</text>
+  </g>
+  <line x1="72" y1="474" x2="1128" y2="474" stroke="#22304C" stroke-width="1"/>
+
+  <g font-family="Cascadia Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" text-anchor="middle">
+    <rect x="72" y="480" width="1056" height="34" rx="8" fill="#0D1729"/>
+    <rect x="72" y="480" width="4" height="34" rx="2" fill="#3D5A8A"/>
+    <g font-size="15" fill="#B7C7E0">
+      <text x="147" y="503" fill="#67E8F9">42</text>
+      <text x="347" y="503">a1f4…c7</text>
+      <text x="597" y="503">a1f4…c7</text>
+      <text x="787" y="503" fill="#8FA3C4">=</text>
+    </g>
+    <rect x="910" y="486" width="160" height="22" rx="11" fill="#131F36" stroke="#2A3C5E"/>
+    <text x="990" y="502" font-size="12" fill="#8FA3C4">∅  NO-OP</text>
+
+    <rect x="72" y="520" width="1056" height="34" rx="8" fill="#131F36"/>
+    <rect x="72" y="520" width="4" height="34" rx="2" fill="#FBBF24"/>
+    <g font-size="15" fill="#B7C7E0">
+      <text x="147" y="543" fill="#67E8F9">42</text>
+      <text x="347" y="543">a1f4…c7</text>
+      <text x="597" y="543" fill="#FCD34D">9c3b…d1</text>
+      <text x="787" y="543" fill="#FBBF24">≠</text>
+    </g>
+    <rect x="910" y="526" width="160" height="22" rx="11" fill="#2A2109" stroke="#8A6A16"/>
+    <text x="990" y="542" font-size="12" font-weight="700" fill="#FBBF24">UPDATE</text>
+  </g>
+</svg>

@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
+jobs:
+  windows:
+    name: Build, test and publish (win-x86)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore DBFSync.slnx
+
+      - name: Build (Release)
+        run: dotnet build DBFSync.slnx --configuration Release --no-restore
+
+      # The Microsoft Visual FoxPro ODBC Driver is x86-only and is not installed
+      # on GitHub-hosted runners, so the portable validation surface is the unit
+      # test suite plus the end-to-end SQLite destination tests. Running the DBF
+      # end-to-end tests requires a self-hosted Windows runner with that driver.
+      - name: Test (Release)
+        run: dotnet test DBFSync.slnx --configuration Release --no-build --verbosity normal
+
+      - name: Audit dependencies
+        shell: pwsh
+        run: |
+          $audit = dotnet list DBFSync.slnx package --vulnerable --include-transitive 2>&1 | Out-String
+          Write-Host $audit
+          if ($audit -match 'has the following vulnerable packages') {
+            Write-Error 'Vulnerable NuGet packages detected.'
+            exit 1
+          }
+
+      - name: Publish win-x86 (framework-dependent)
+        run: >
+          dotnet publish src/DBFSync/DBFSync.csproj
+          --configuration Release
+          --runtime win-x86
+          --self-contained false
+          --output dist/win-x86
+
+      - name: Upload win-x86 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbfsync-win-x86
+          path: dist/win-x86
+          if-no-files-found: error

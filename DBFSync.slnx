@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/DBFSync.Core/DBFSync.Core.csproj" />
+    <Project Path="src/DBFSync/DBFSync.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DBFSync.Core.Tests/DBFSync.Core.Tests.csproj" />
+  </Folder>
+</Solution>
